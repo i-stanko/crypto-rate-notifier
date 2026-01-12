@@ -4,7 +4,6 @@ Crypto Rate Notifier is a lightweight HTTP service written in Go that provides t
 
 [![asciicast](https://asciinema.org/a/587013.svg)](https://asciinema.org/a/587013)
 
----
 
 ## Features
 
@@ -15,14 +14,12 @@ Crypto Rate Notifier is a lightweight HTTP service written in Go that provides t
 - Docker-ready (multi-stage build)
 - Clean Go project structure
 
----
 
 ## Requirements
 
 - Go 1.23+
 - Docker (optional)
 
----
 
 ## Getting Started
 
@@ -42,7 +39,6 @@ go run ./cmd/server
 The service will be available at:
 - http://localhost:8080
 
----
 
 ## API Endpoints
 
@@ -64,7 +60,7 @@ curl -X POST \
 curl http://localhost:8080/api/subscribers
 ```
 
----
+
 
 ## Docker
 
@@ -79,7 +75,6 @@ docker build -t crypto-rate-notifier .
 ```bash
 docker run -p 8080:8080 crypto-rate-notifier
 ```
----
 
 ## Notes
 
