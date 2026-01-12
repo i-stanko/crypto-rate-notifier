@@ -2,7 +2,7 @@
 
 Crypto Rate Notifier is a lightweight HTTP service written in Go that provides the current Bitcoin exchange rate and allows users to subscribe to rate notifications via email. The project is designed as a clean, container-ready service with a clear separation of concerns and production-oriented structure.
 
-[![asciicast](https://asciinema.org/a/587013.svg)](https://asciinema.org/a/587013)
+[![asciicast](https://asciinema.org/a/767442.svg)](https://asciinema.org/a/767442)
 
 
 ## Features
@@ -23,15 +23,13 @@ Crypto Rate Notifier is a lightweight HTTP service written in Go that provides t
 
 ## Getting Started
 
-#### Clone repository
-
+- **Clone repository**
 ```bash
 git clone https://github.com/i-stanko/crypto-rate-notifier.git
 cd crypto-rate-notifier
 ```
 
-#### Run locally
-
+- **Run locally**
 ```bash
 go run ./cmd/server
 ```
@@ -40,14 +38,15 @@ The service will be available at:
 - http://localhost:8080
 
 
+
 ## API Endpoints
 
-#### Get current BTC to UAH exchange rate
+- **Get current BTC to UAH exchange rate**
 ```bash
 curl http://localhost:8080/api/rate
 ```
 
-#### Subscribe email
+- **Subscribe email**
 ```bash
 curl -X POST \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -55,7 +54,7 @@ curl -X POST \
   http://localhost:8080/api/subscribe
 ```
 
-#### List subscribed emails
+- **List subscribed emails**
 ```bash
 curl http://localhost:8080/api/subscribers
 ```
@@ -64,14 +63,12 @@ curl http://localhost:8080/api/subscribers
 
 ## Docker
 
-#### Build image
-
+- **Build image**
 ```bash
 docker build -t crypto-rate-notifier .
 ```
 
-#### Run container
-
+- **Run container**
 ```bash
 docker run -p 8080:8080 crypto-rate-notifier
 ```
@@ -80,4 +77,4 @@ docker run -p 8080:8080 crypto-rate-notifier
 
 - Subscribers are stored in a local file using a storage interface.
 - The project is intended as a demo service for Go backend and DevOps practices.
-- The codebase is ready for further extension (tests, Kubernetes, Helm, CI/CD).
+- The codebase is ready for further extension (Tests, Kubernetes, Helm, CI/CD).
