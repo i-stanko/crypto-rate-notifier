@@ -22,11 +22,14 @@ func main() {
 
 	store := storage.NewFileStore(cfg.SubscribersFile)
 	api := handlers.NewAPIHandler(store)
+	health := handlers.NewHealthHandler(store)
 
 	router := gin.Default()
 	router.GET("/api/rate", api.GetBitcoinRate)
 	router.POST("/api/subscribe", api.Subscribe)
 	router.GET("/api/subscribers", api.ListSubscribers)
+	router.GET("/healthz", health.Healthz)
+	router.GET("/readyz", health.Readyz)
 
 	server := &http.Server{
 		Addr:    fmt.Sprintf(":%s", cfg.Port),
