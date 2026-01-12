@@ -17,22 +17,25 @@ func NewHealthHandler(store storage.SubscriberStore) *HealthHandler {
 
 // GET /healthz
 func (h *HealthHandler) Healthz(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
+	c.IndentedJSON(http.StatusOK, gin.H{
 		"status": "ok",
 	})
+	c.Writer.WriteString("\n")
 }
 
 // GET /readyz
 func (h *HealthHandler) Readyz(c *gin.Context) {
 	_, err := h.store.List()
 	if err != nil {
-		c.JSON(http.StatusServiceUnavailable, gin.H{
+		c.IndentedJSON(http.StatusServiceUnavailable, gin.H{
 			"status": "not ready",
 		})
+		c.Writer.WriteString("\n")
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
+	c.IndentedJSON(http.StatusOK, gin.H{
 		"status": "ready",
 	})
+	c.Writer.WriteString("\n")
 }
